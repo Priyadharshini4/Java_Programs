@@ -1,0 +1,49 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] arr={2,2,1,1,1,1,3,4,4,5};
+	    HashMap<Integer, Integer> hm = new HashMap<>();
+	    ArrayList<Integer> alist=new ArrayList<>();
+	    for(int i=0;i<arr.length;i++) {
+	        if(hm.get(arr[i])==null) {
+	            hm.put(arr[i],1);
+	            alist.add(arr[i]);
+	        }
+	        else {
+	            int freq=hm.get(arr[i]);
+	            hm.put(arr[i],freq+1);
+	            alist.add(arr[i]);
+	        }
+	    }
+	    SortByFreq obj = new SortByFreq(hm);
+	    Collections.sort(alist,obj);
+	    for(Integer i:alist) {
+	        System.out.print(i + " ");
+	    }
+	}
+}
+	class SortByFreq implements Comparator<Integer> {
+	    HashMap<Integer,Integer> temp;
+	    
+	    SortByFreq(HashMap<Integer,Integer> ftemp) {
+	        this.temp=ftemp;
+	    }
+	    @Override
+	    public int compare(Integer k1,Integer k2){
+	        int fcomp=temp.get(k2).compareTo(temp.get(k1));
+	        int vcomp=k1.compareTo(k2);
+	        if(fcomp==0)
+	            return vcomp;
+	        else
+	            return fcomp;
+	    }
+	}

@@ -1,0 +1,38 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{   static int migratoryBirds(int[] arr) {
+        int freq=0,max=-1,value=0,i=0;
+        Arrays.sort(arr);
+        for(;i<arr.length-1;i++) {
+                if(arr[i]==arr[i+1]) 
+                    freq++;
+                else {
+                    if(max<freq) {
+                        max=freq;
+                        value=arr[i];
+                        freq=0;
+                    }
+                }
+        }
+        if(max<freq) 
+                value=arr[i];
+        return value;    
+}
+	public static void main(String[] args) {
+	    Scanner in=new Scanner(System.in);
+	    int n=in.nextInt();
+	    int[] arr=new int[n];
+	    for(int i=0;i<n;i++)
+	    arr[i]=in.nextInt();
+	        in.close();
+	    System.out.println(migratoryBirds(arr));
+	}
+}
