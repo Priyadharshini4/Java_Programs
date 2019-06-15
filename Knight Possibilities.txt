@@ -1,0 +1,65 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] arr=new int[8];
+	    int p=0,out=0,min=64,num=0;
+	    Scanner in=new Scanner(System.in);
+	    num=in.nextInt();
+	    for(int i=0;i<(num*2);i++) {
+	     arr[i]=in.nextInt();
+	     }
+        in.close();
+         for(int i=0;i<(num*2);) { 
+             int row=arr[i];
+             int col=arr[i+1];
+	         p=row*col;
+	   
+	   if(p==1||p==8||p==64) {
+	       if(p==8) {
+	           if(row==1||row==8)
+	           out=2;
+    	       else
+    	       out=6;
+	       }
+	       else
+	         out=2;
+	   }
+	   else if(p==2||p==7||p==16||p==56)
+	        out=3;
+	   else if((p==3)||(p==4)||(p==5)||(p==6)||(p==14)||(p==49)||(p==24)||(p==32)||(p==40)||(p==48)) {
+	       if(p==6) {
+	           if(row==1||row==6)
+	           out=4;
+    	       else
+    	       out=6;
+	       }
+	       else
+	        out=4;
+	   }
+	    else if((p==6)||(p==8)||(p==10)||(p==12)||(p==21)||(p==35)||(p==28)||(p==42)||(p==10))
+	        out=6;
+	   else
+	     out=8;
+	   System.out.println("Possibilities: " + out);
+	   int temp=64-out;
+		System.out.println("Left out boxes: "+ temp);
+		if(min>temp)
+		    min=temp;
+		i=i+2;
+         }
+         
+		System.out.println("Last left out boxes: "+ min);
+
+	}
+}
+
+
