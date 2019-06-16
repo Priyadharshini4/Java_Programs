@@ -1,0 +1,30 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+public class Main
+{   
+    static String Stringreverse(String str) {
+        String ch[]=str.split(" ");
+        StringBuilder str1=new StringBuilder();
+         for(String i:ch) {
+	        String rw=new StringBuilder(i).reverse().toString();
+	        str1.append(rw+" ");
+            }
+        return str1.toString().trim();
+    }
+	public static void main(String[] args) {
+	    
+	    String str="I like this program very much";
+	    System.out.println(Stringreverse(str));
+	      }
+		
+	}
+
+
+
+
