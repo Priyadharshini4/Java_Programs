@@ -1,0 +1,55 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{   static void Building(String[] array) {
+        int i=0,max=0,count=0,value=0;
+        boolean status=true;
+        String time1="",time2="";
+        while(i<array.length) {
+            String[] arr=array[i].split(",");
+            value=Integer.parseInt(arr[1]);
+            if(i+1==1&&arr[2].equals("exit")) {
+                    status=false;
+                    break;
+            }
+            if(status!=false) {
+            if(arr[2].equals("enter")) {
+                count+=value;
+                if(count>max) {
+                    max=count;
+                    time1=arr[0];
+                }
+            }
+            else if(arr[2].equals("exit")) {
+                if(count==max)
+                 time2=arr[0];
+                count-=value;
+                
+            }
+            i++;
+            }  
+        }
+        if(status==false)
+        System.out.println("Invalid");
+        else
+        System.out.println(time1+ " " +time2);
+}
+	public static void main(String[] args) {
+	    Scanner in=new Scanner(System.in);
+	    int n=in.nextInt();
+	    String[] array=new String[n];
+	    for(int i=0;i<n;i++) 
+	        array[i]=in.next();
+	    in.close();
+	    Building(array);
+	}
+}
+
+
