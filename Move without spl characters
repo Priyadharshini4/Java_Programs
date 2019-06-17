@@ -1,0 +1,39 @@
+import java.util.*;
+public class Main {
+    static String RotateVowels(String str) {
+      char[] ch=str.toCharArray();
+      int count=0,index=0;
+      char temp1=' ',temp2=' ';
+      for(int i=0;i<ch.length;i++) {
+        if(count==0) 
+          index=i;
+        if(count%2==0) {
+          if((ch[i]>=65&&ch[i]<=90)||(ch[i]>=97&&ch[i]<=122)||(ch[i]>=48&&ch[i]<=57)) {
+            temp1=ch[i];
+            ch[i]=temp2;
+            count++;
+          } }
+        else if(count%2!=0) {
+          if((ch[i]>=65&&ch[i]<=90)||(ch[i]>=97&&ch[i]<=122)||(ch[i]>=48&&ch[i]<=57)){
+            temp2=ch[i];
+            ch[i]=temp1;
+            count++;
+    }
+    }
+    } if(count%2==0)
+          ch[index]=temp2;
+      else
+          ch[index]=temp1;
+      str=new String(ch);
+      return str;
+    }
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        String str=in.next();
+      in.close();
+      System.out.println(str);
+      str=RotateVowels(str);
+      System.out.println(str);
+    }
+}
+
